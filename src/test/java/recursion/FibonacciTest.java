@@ -22,16 +22,16 @@ class FibonacciTest {
 
     private static Stream<Arguments> shouldCalculateFibonacciNumber() {
         return Stream.of(
-                of(0, 0),
-                of(1, 1),
+                of(1, 0),
                 of(2, 1),
-                of(3, 2),
-                of(4, 3),
-                of(5, 5),
-                of(6, 8),
-                of(7, 13),
-                of(8, 21),
-                of(9, 34)
+                of(3, 1),
+                of(4, 2),
+                of(5, 3),
+                of(6, 5),
+                of(7, 8),
+                of(8, 13),
+                of(9, 21),
+                of(10, 34)
         );
     }
 
