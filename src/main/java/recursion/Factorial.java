@@ -3,6 +3,8 @@ package recursion;
 public class Factorial {
 
     int of(int base) {
-        throw new UnsupportedOperationException();
+        return base != 0
+            ? base * of(base - 1)
+            : 1;
     }
 }
