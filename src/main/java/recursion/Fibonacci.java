@@ -3,11 +3,11 @@ package recursion;
 public class Fibonacci {
 
     public int at(int index) {
-        if (index < 1) {
+        if (index < 0) {
             throw new IllegalArgumentException();
         }
-        return index == 1 || index == 2
-            ? index - 1
+        return index == 0 || index == 1
+            ? index
             : at(index - 1) + at(index - 2);
     }
 }
