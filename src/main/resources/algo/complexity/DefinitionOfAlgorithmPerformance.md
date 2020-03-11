@@ -1,0 +1,1 @@
+Algorithm performance is how much time will given algorithm will take to run
