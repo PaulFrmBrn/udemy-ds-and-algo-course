@@ -1,15 +1,16 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.params.provider.Arguments.of;
+class FibonacciTest {
 
-public class FibonacciRecursiveImplementationTest {
-
-    private static Stream<Arguments> test_getFibonacciNumber() {
+    private static Stream<Arguments> shouldCalculateFibonacciNumber() {
         return Stream.of(
                 of(0, 0),
                 of(1, 1),
@@ -24,10 +25,17 @@ public class FibonacciRecursiveImplementationTest {
         );
     }
 
+    private Fibonacci sut;
+
+    @BeforeEach
+    void init() {
+        sut = new Fibonacci();
+    }
+
     @ParameterizedTest
     @MethodSource
-    public void test_getFibonacciNumber(int index, int expectedFibonacciNumber) {
-        assertEquals(0, expectedFibonacciNumber);
+    void shouldCalculateFibonacciNumber(int index, int expectedFibonacciNumber) {
+        assertEquals(expectedFibonacciNumber, sut.at(index));
     }
 
 }
