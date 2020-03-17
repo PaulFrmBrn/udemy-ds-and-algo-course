@@ -21,6 +21,7 @@ class FactorialTest {
 
     private static Stream<Arguments> shouldCalculateFactorial() {
         return Stream.of(
+                of(0, 1),
                 of(1, 1),
                 of(2, 2),
                 of(3, 6),
@@ -36,7 +37,7 @@ class FactorialTest {
     }
 
     private static Stream<Integer> shouldFailWithException() {
-        return Stream.of(0, -1, -7);
+        return Stream.of(-1, -7);
     }
 
     @ParameterizedTest
