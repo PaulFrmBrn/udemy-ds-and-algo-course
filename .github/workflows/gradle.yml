@@ -21,6 +21,6 @@ jobs:
       with:
         java-version: 11
     - name: Grant execute permission for gradlew
-      run: chmod +x ./recursion/gradlew
+      run: chmod +x ./gradlew
     - name: Build with Gradle
-      run: ./recursion/gradlew build
+      run: ./gradlew :build
