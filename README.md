@@ -22,6 +22,6 @@ Branch with the implementation should be named like this:
 ```
 e.g.
 ```
-02-recursion-tests
+02-recursion-zamonier
 ```
 Such branch should be targeted to author's branch and marked with `implementation` label.
