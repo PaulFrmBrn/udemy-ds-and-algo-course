@@ -6,13 +6,19 @@ package array;
  */
 public class Coordinates1d implements Coordinates {
 
+    private final int index;
+
+    private Coordinates1d(int index) {
+        this.index = index;
+    }
+
     /**
      * Get index
      *
      * @return index
      */
     public int getIndex() {
-        throw new UnsupportedOperationException();
+        return index;
     }
 
     /**
@@ -22,6 +28,6 @@ public class Coordinates1d implements Coordinates {
      * @return one-dimensional coordinates
      */
     public static Coordinates1d of(int index) {
-        throw new UnsupportedOperationException();
+        return new Coordinates1d(index);
     }
 }

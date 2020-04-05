@@ -6,13 +6,21 @@ package array;
  */
 public class Coordinates2d implements Coordinates {
 
+    private final int row;
+    private final int column;
+
+    private Coordinates2d(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }
+
     /**
      * Get row
      *
      * @return row
      */
     public int getRow() {
-        throw new UnsupportedOperationException();
+        return row;
     }
 
     /**
@@ -21,7 +29,7 @@ public class Coordinates2d implements Coordinates {
      * @return column
      */
     public int getColumn() {
-        throw new UnsupportedOperationException();
+        return column;
     }
 
     /**
@@ -32,6 +40,6 @@ public class Coordinates2d implements Coordinates {
      * @return two-dimensional coordinates
      */
     public static Coordinates2d of(int row, int column) {
-        throw new UnsupportedOperationException();
+        return new Coordinates2d(row, column);
     }
 }
