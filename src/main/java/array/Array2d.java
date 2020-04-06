@@ -42,12 +42,8 @@ public class Array2d<T> implements Array<T, Coordinates2d> {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * Visit the array (print for example)
-     *
-     * @param rowConsumer - array's row visitor
-     */
-    public void visit(Consumer<Array1d<T>> rowConsumer) {
+    @Override
+    public void visit(Consumer<T> rowConsumer) {
         throw new UnsupportedOperationException();
     }
 }

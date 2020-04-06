@@ -7,7 +7,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Array2dTest {
 
@@ -43,7 +48,7 @@ class Array2dTest {
                         array.insert(Coordinates2d.of(i, j), j)));
         // then
         StringBuilder sb = new StringBuilder();
-        array.visit(row -> row.visit(sb::append));
+        array.visit(sb::append);
         assertEquals("012012012", sb.toString());
     }
 
@@ -98,17 +103,14 @@ class Array2dTest {
                 .forEach(i -> array.insert(
                         Coordinates2d.of(i, i),
                         10 * i));
-        String expectedPresentation = "0, null, null, null, null, \n" +
-                                      "null, 1, null, null, null, \n" +
-                                      "null, null, 2, null, null, \n" +
-                                      "null, null, null, 3, null, \n" +
-                                      "null, null, null, null, null, \n";
+        String expectedPresentation = "0, null, null, null, null, " +
+                                      "null, 10, null, null, null, " +
+                                      "null, null, 20, null, null, " +
+                                      "null, null, null, 30, null, " +
+                                      "null, null, null, null, null, ";
         StringBuilder sb = new StringBuilder();
         // when
-        array.visit(row -> {
-            row.visit(cell -> sb.append(cell).append(", "));
-            sb.append("\n");
-        });
+        array.visit(cell -> sb.append(cell).append(", "));
         // then
         String presentation = sb.toString();
         assertEquals(expectedPresentation, presentation);

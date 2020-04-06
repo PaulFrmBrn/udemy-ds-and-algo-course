@@ -7,7 +7,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Array1dTest {
 
@@ -99,7 +103,7 @@ class Array1dTest {
                 .forEach(i -> array.insert(
                         Coordinates1d.of(i),
                         10 * i));
-        String expectedPresentation = "0, 1, 2, 3, 4, 5, 6, 7, 8, null ";
+        String expectedPresentation = "0, 10, 20, 30, 40, 50, 60, 70, 80, null, ";
         StringBuilder sb = new StringBuilder();
         // when
         array.visit(cell -> sb.append(cell).append(", "));

@@ -41,11 +41,7 @@ public class Array1d<T> implements Array<T, Coordinates1d> {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * Visit the array (print for example)
-     *
-     * @param consumer - array's cell visitor
-     */
+    @Override
     public void visit(Consumer<T> consumer) {
         throw new UnsupportedOperationException();
     }

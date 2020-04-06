@@ -40,4 +40,11 @@ public interface Array<T, C> {
      * @param coordinates - position for deleting
      */
     void delete(C coordinates);
+
+    /**
+     * Visit the array (print for example)
+     *
+     * @param consumer - array's cell visitor
+     */
+    public void visit(Consumer<T> consumer);
 }
