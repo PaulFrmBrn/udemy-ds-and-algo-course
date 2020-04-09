@@ -77,7 +77,7 @@ class Array1dTest {
                         Coordinates1d.of(i),
                         10 * i));
         // expect
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(ArrayStoreException.class,
                 () -> array.insert(Coordinates1d.of(1), 100));
     }
 

@@ -77,7 +77,7 @@ class Array2dTest {
                         Coordinates2d.of(i, i),
                         10 * i));
         // expect
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(ArrayStoreException.class,
                 () -> array.insert(Coordinates2d.of(1, 1), 100));
     }
 
