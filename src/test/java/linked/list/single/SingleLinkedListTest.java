@@ -24,7 +24,7 @@ class SingleLinkedListTest {
         // when
         var list = new SingleLinkedList<Integer>();
         // then
-        assertEquals(list.getSize(), 0);
+        assertEquals(list.size(), 0);
     }
 
     @Test

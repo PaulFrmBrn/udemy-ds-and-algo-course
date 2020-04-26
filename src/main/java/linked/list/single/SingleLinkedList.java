@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 public class SingleLinkedList<T> implements LinkedList<T> {
 
     @Override
-    public int getSize() {
+    public int size() {
         throw new UnsupportedOperationException();
     }
 

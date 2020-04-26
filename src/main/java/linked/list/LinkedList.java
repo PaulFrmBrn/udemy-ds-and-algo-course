@@ -6,9 +6,9 @@ import java.util.function.Consumer;
 /**
  * Linked List interface
  *
- * Describes method fot one directional Linked List
+ * Describes methods for one directional Linked List
  *
- * When created contains no elements, so {@link LinkedList#getSize()} returns 0
+ * When created contains no elements, so {@link LinkedList#size()} returns 0
  *
  * Location has zero based value
  *
@@ -28,7 +28,7 @@ public interface LinkedList<T> {
     /**
      * Returns the size of the list
      */
-    int getSize();
+    int size();
 
     /**
      * Inserts element at the beginning of the list
@@ -51,13 +51,13 @@ public interface LinkedList<T> {
 
     /**
      * Returns location of the element with specified value
-     * @throws NoSuchElementException if there is on element with specified value in the list
+     * @throws NoSuchElementException if there is no element with specified value in the list
      * @throws IllegalArgumentException if value is null
      */
     int search(T value);
 
     /**
-     * Applies specified function to the each and every element of th elist
+     * Applies specified function to the each and every element of the list
      */
     void visit(Consumer<T> consumer);
 
@@ -81,7 +81,7 @@ public interface LinkedList<T> {
     void deleteAt(int location);
 
     /**
-     * Deletes all element from the list
+     * Deletes all elements from the list
      */
     void deleteAll();
 
