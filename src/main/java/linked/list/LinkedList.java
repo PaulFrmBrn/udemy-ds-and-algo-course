@@ -18,8 +18,6 @@ import java.util.function.Consumer;
  *
  * Maximum size is restricted with {@link Integer#MAX_VALUE}
  *
- * NOT threadsafe
- *
  * @author Dmitry Pavlov
  * @since 19.04.2020
  */
