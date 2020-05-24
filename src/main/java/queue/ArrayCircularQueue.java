@@ -1,42 +1,87 @@
 package queue;
 
+import java.util.Arrays;
+
+import static java.util.Objects.requireNonNull;
+
 /**
  * @author Dmitry Pavlov
  * @since 24.05.2020
  */
 public class ArrayCircularQueue<T> implements Queue<T> {
 
-    public ArrayCircularQueue(int i) {
+    private static final int EMPTY_QUEUE_POINTER = -1;
+
+    private final Object[] array;
+    private int start;
+    private int end;
+
+    public ArrayCircularQueue(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("size should be > 0");
+        }
+        this.start = EMPTY_QUEUE_POINTER;
+        this.end = EMPTY_QUEUE_POINTER;
+        this.array = new Object[size];
     }
 
     @Override
     public void enqueue(T value) {
-        throw new UnsupportedOperationException();
+        requireNonNull(value, "value");
+        if (isFull()) {
+            throw new IllegalStateException("Queue is full");
+        }
+        if (end == -1) {
+            start = end = 0;
+            array[end] = value;
+        } else if (end == array.length - 1) {
+            end = 0;
+            array[end] = value;
+        } else {
+            array[++end] = value;
+        }
     }
 
     @Override
     public T dequeue() {
-        throw new UnsupportedOperationException();
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+        T value = (T) array[start];
+        array[start] = null;
+        if (start == end) {
+            start = end = EMPTY_QUEUE_POINTER;
+        } else if (start == array.length - 1) {
+            start = 0;
+        } else {
+            start++;
+        }
+        return value;
     }
 
     @Override
     public T peek() {
-        throw new UnsupportedOperationException();
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+        return (T) array[start];
     }
 
     @Override
     public boolean isFull() {
-        throw new UnsupportedOperationException();
+        return (start == 0 && end == array.length - 1) ||
+                (start != 0 && start == end + 1);
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException();
+        return start == EMPTY_QUEUE_POINTER;
     }
 
     @Override
     public void erase() {
-        throw new UnsupportedOperationException();
+        Arrays.fill(array, null);
+        start = EMPTY_QUEUE_POINTER;
+        end = EMPTY_QUEUE_POINTER;
     }
-
 }
