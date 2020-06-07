@@ -13,7 +13,7 @@ e.g.
 ```
 02-recursion-tests
 ```
-Such branch should be targeted to the `master` branch and marked with `tests` label.
+Such a branch should be targeted to the `master` branch and marked with `tests` label.
 
 ### Implementation
 Branch with the implementation should be named like this: 
